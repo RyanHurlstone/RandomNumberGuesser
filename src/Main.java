@@ -1,5 +1,5 @@
 /**
- * This is a simple Java class.
+ * This is a small game where you have to guess the random number chosen by the computer!
  * @author Ryan Hurlstone
  * @version 1.0
  *
