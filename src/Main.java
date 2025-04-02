@@ -9,24 +9,41 @@ public class Main {
     public static void main(String[] args) {
 
         int computerNumberChoice = (int) (Math.random() * 11); // Chooses a number between 0 and 1
-        //
+        int userNumberChoice = -1; // Start with a negative number that won't match
+
         System.out.println("========================================");
         System.out.println("= Welcome to the number guessing game! =");
         System.out.println("= This was created by Ryan Hurlstone ! =");
         System.out.println("========================================");
 
-        System.out.println("Enter a number between 0 and 10: "); // Asks user to enter a number between 0 & 10 to guess what the computer has picked
         Scanner scanner = new Scanner(System.in); // Initialises a scanner
-        int userNumberChoice = scanner.nextInt(); // Creates a new variable for the users input and uses the scanner to scan and read what the user has input
-        scanner.close(); // Close the scanner so we don't lose the data
 
-        System.out.println("Your number choice is: " + userNumberChoice); // Print the users number choice they entered
+
+        // Loop until the user gets the answer correct
+        while (userNumberChoice != computerNumberChoice) {
+            System.out.println("Enter your guess (0 - 10): ");
+            userNumberChoice = scanner.nextInt(); // Read the users input and set it to userNumberChoice variable
+
             if (userNumberChoice == computerNumberChoice) { // If the users number is the same as the computers print out they guessed it correctly
-                System.out.println("You guessed the number correctly!");
+                System.out.println("You guessed the number correctly! Well done!");
             } else if (userNumberChoice > computerNumberChoice) { // If the users number is higher than the computers print out they guessed too high
                 System.out.println("Your guess is too high!");
             } else { // If the users number does not equal the computers number  && is not higher, it must be lower
                 System.out.println("Your guess is too low!");
+            }
         }
+
+        System.out.println("Closing scanner...");
+        try {
+            Thread.sleep(1000); // ms delay
+        } catch (InterruptedException e) {
+            e.printStackTrace(); // Handle error (or ignore if you want)
+        }
+        scanner.close(); // Close the scanner
+        System.out.println("Scanner sucessfully closed");
+        System.out.println(""); // Creates a break / gap
+        System.out.println("Thanks for playing, have a nice day!");
+
+
     }
 }
